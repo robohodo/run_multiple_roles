@@ -31,6 +31,6 @@
     - name: Display Output
       debug: var=out
 
-    - include_tasks: tasks/main.yml
-
+    #  - include_tasks: tasks/main.yml
+    - include_tasks: run_roles.yml
 
