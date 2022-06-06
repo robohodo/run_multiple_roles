@@ -1,0 +1,11 @@
+---
+# Grab Role1
+- src: git@github.com:robohodo/Role1.git
+  name: Role1 
+  scm: git
+
+# Grab Role2
+- src: git@github.com:robohodo/Role2.git 
+  name: Role2 
+  scm: git
+

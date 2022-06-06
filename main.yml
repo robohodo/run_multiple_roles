@@ -1,0 +1,42 @@
+---
+# tasks file for .
+
+
+- name: Run Multiple Roles
+  hosts: all
+  tasks:
+    - name: Create the roles directory
+      delegate_to: localhost
+      file:
+        path: '{{playbook_dir}}/roles'
+        state: directory
+        mode: "755"
+
+    - name: Copy the requirements file
+      delegate_to: localhost
+      copy: 
+        src: files/requirements.yml
+        dest: '{{playbook_dir}}//roles/requirements.yml'
+        mode: '0500'
+
+    - name: run ansible-galaxy 
+      delegate_to: localhost
+      # command: which ansible-galaxy
+      shell: /Library/Frameworks/Python.framework/Versions/3.7/bin/ansible-galaxy install --role-file {{playbook_dir}}/roles/requirements.yml --roles-path {{playbook_dir}}/roles/
+      # local_action: command ansible-galaxy install --role-file {{playbook_dir}}/roles/requirements.yml --roles-path {{playbook_dir}}/roles/
+      args:
+        executable: /bin/bash
+      register: out
+
+    - name: Display Output
+      debug: var=out
+
+    - name: run a role
+      import_role:
+        name: Role1
+
+    - name: run a role
+      import_role:
+        name: Role2
+
+
