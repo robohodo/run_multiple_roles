@@ -31,12 +31,6 @@
     - name: Display Output
       debug: var=out
 
-    - name: run a role
-      import_role:
-        name: Role1
-
-    - name: run a role
-      import_role:
-        name: Role2
+    - include_tasks: tasks/main.yml
 
 

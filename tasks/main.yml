@@ -1,0 +1,9 @@
+---
+
+- name: run a role
+  import_role:
+    name: Role1
+
+- name: run a role
+  import_role:
+    name: Role2
