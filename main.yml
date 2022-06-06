@@ -22,7 +22,7 @@
     - name: run ansible-galaxy 
       delegate_to: localhost
       # command: which ansible-galaxy
-      shell: /Library/Frameworks/Python.framework/Versions/3.7/bin/ansible-galaxy install --role-file {{playbook_dir}}/roles/requirements.yml --roles-path {{playbook_dir}}/roles/
+      shell: /Library/Frameworks/Python.framework/Versions/3.7/bin/ansible-galaxy install --force --role-file {{playbook_dir}}/roles/requirements.yml --roles-path {{playbook_dir}}/roles/
       # local_action: command ansible-galaxy install --role-file {{playbook_dir}}/roles/requirements.yml --roles-path {{playbook_dir}}/roles/
       args:
         executable: /bin/bash
